@@ -40,12 +40,12 @@ Codex or any assisting agent should update this file as tasks are completed.
 
 Create node Cypher files using `MERGE`, not `CREATE`.
 
-- [ ] Populate `data/01_nodes/nodes_reference.cypher`
-- [ ] Populate `data/01_nodes/nodes_use_cases.cypher`
-- [ ] Populate `data/01_nodes/nodes_reusable_functions.cypher`
-- [ ] Populate `data/01_nodes/nodes_technical.cypher`
-- [ ] Populate `data/01_nodes/nodes_governance.cypher`
-- [ ] Populate `data/01_nodes/nodes_value.cypher`
+- [x] Populate `data/01_nodes/nodes_reference.cypher`
+- [x] Populate `data/01_nodes/nodes_use_cases.cypher`
+- [x] Populate `data/01_nodes/nodes_reusable_functions.cypher`
+- [x] Populate `data/01_nodes/nodes_technical.cypher`
+- [x] Populate `data/01_nodes/nodes_governance.cypher`
+- [x] Populate `data/01_nodes/nodes_value.cypher`
 
 Expected scope:
 
