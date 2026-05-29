@@ -29,10 +29,10 @@ Codex or any assisting agent should update this file as tasks are completed.
 
 ## 2. Constraints and registry
 
-- [ ] Populate `cypher/00_constraints.cypher`
-- [ ] Populate `data/00_registry/node_id_registry.csv`
-- [ ] Confirm every planned node has a stable ID
-- [ ] Confirm no duplicate or near-duplicate IDs exist
+- [x] Populate `cypher/00_constraints.cypher`
+- [x] Populate `data/00_registry/node_id_registry.csv`
+- [x] Confirm every planned node has a stable ID
+- [x] Confirm no duplicate or near-duplicate IDs exist
 
 ---
 
