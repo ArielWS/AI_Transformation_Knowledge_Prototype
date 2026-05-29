@@ -228,6 +228,20 @@ SET r.requirement_level = row.requirement_level,
     r.created_for_story = "story_2";
 
 UNWIND [
+  {tool_id: "TOOL_DIGITAL_HELP_RAG", control_id: "CTRL_OUTPUT_GROUNDING", requirement_level: "mandatory", source: "architecture", created_for_story: "story_1"},
+  {tool_id: "TOOL_DIGITAL_HELP_RAG", control_id: "CTRL_CONTENT_SAFETY", requirement_level: "recommended", source: "architecture", created_for_story: "story_1"},
+  {tool_id: "TOOL_NEXT_BEST_OFFER", control_id: "CTRL_CONSENT_CHECK", requirement_level: "mandatory", source: "policy", created_for_story: "story_2|story_3"},
+  {tool_id: "TOOL_NEXT_BEST_OFFER", control_id: "CTRL_EXPLAINABILITY", requirement_level: "mandatory", source: "risk_trigger", created_for_story: "story_2|story_3"},
+  {tool_id: "TOOL_NEXT_BEST_OFFER", control_id: "CTRL_FAIRNESS_BIAS_REVIEW", requirement_level: "recommended", source: "risk_trigger", created_for_story: "story_2|story_3"}
+] AS row
+MATCH (t:ToolServer {id: row.tool_id})
+MATCH (c:Control {id: row.control_id})
+MERGE (t)-[r:REQUIRES_CONTROL]->(c)
+SET r.requirement_level = row.requirement_level,
+    r.source = row.source,
+    r.created_for_story = row.created_for_story;
+
+UNWIND [
   {use_case_id: "UC_DIGITAL_ONBOARDING_ASSISTANT", control_id: "CTRL_AUDIT_LOGGING", requirement_level: "mandatory", source: "architecture"},
   {use_case_id: "UC_AUTHENTICATED_CUSTOMER_ASSISTANT", control_id: "CTRL_ROLE_BASED_ACCESS", requirement_level: "mandatory", source: "architecture"},
   {use_case_id: "UC_AUTHENTICATED_CUSTOMER_ASSISTANT", control_id: "CTRL_OUTPUT_GROUNDING", requirement_level: "mandatory", source: "architecture"},
