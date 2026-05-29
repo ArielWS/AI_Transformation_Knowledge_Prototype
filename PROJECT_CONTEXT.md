@@ -1,6 +1,3 @@
-
-
-````md
 # Project Context
 
 ## 1. Project purpose
@@ -308,6 +305,3 @@ The repo is successful when it can support a quick Neo4j demo answering:
 2. Which reusable functions/tool servers unlock the most AI use cases?
 3. Which similar-risk use cases have missing governance controls?
 4. Which blockers affect the most use cases, KPIs, and blueprints?
-
-```
-

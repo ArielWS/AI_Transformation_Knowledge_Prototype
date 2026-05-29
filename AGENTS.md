@@ -1,6 +1,3 @@
-
-
-````md
 # Agent Instructions
 
 This repository contains a Neo4j knowledge graph prototype for an AI transformation / Retail AI portfolio intelligence use case.
@@ -499,6 +496,3 @@ When uncertain, optimize for:
 5. ability to load and inspect in Neo4j quickly
 
 Do not optimize for completeness.
-
-```
-```

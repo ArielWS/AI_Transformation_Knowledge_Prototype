@@ -1,6 +1,3 @@
-
-
-````md
 # Decisions
 
 This file records settled modelling and build decisions for the AI Transformation Knowledge Prototype.
@@ -460,6 +457,3 @@ They should show:
 Reason:
 
 * the prototype must demonstrate why a knowledge graph adds value beyond dashboards
-
-```
-
