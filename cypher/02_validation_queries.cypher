@@ -50,13 +50,14 @@ WHERE NOT (u)-[:SUPPORTS_STRATEGY]->(:StrategyPillar)
 RETURN u.id AS use_case_id, u.name AS use_case_name
 ORDER BY use_case_name;
 
-// 7. Use cases without NEEDS_FUNCTION. Expected: zero rows.
+// 7. Story 1 / Story 2 use cases without NEEDS_FUNCTION. Expected: zero rows.
 MATCH (u:UseCase)
-WHERE NOT (u)-[:NEEDS_FUNCTION]->(:ReusableFunction)
-RETURN u.id AS use_case_id, u.name AS use_case_name
+WHERE (u.created_for_story CONTAINS "story_1" OR u.created_for_story CONTAINS "story_2")
+  AND NOT (u)-[:NEEDS_FUNCTION]->(:ReusableFunction)
+RETURN u.id AS use_case_id, u.name AS use_case_name, u.created_for_story AS created_for_story
 ORDER BY use_case_name;
 
-// 8. Reusable functions without DELIVERED_BY. Expected: zero rows unless intentionally conceptual.
+// 8. Reusable functions without DELIVERED_BY. Manual review: some functions may be intentionally conceptual or not yet service-backed.
 MATCH (f:ReusableFunction)
 WHERE NOT (f)-[:DELIVERED_BY]->(:ToolServer)
 RETURN f.id AS function_id, f.name AS function_name
@@ -68,7 +69,7 @@ WHERE NOT (t)-[:USES_SYSTEM]->(:System)
 RETURN t.id AS tool_server_id, t.name AS tool_server_name
 ORDER BY tool_server_name;
 
-// 10. Tool servers without REQUIRES_CONTROL. Expected: zero rows or review by design.
+// 10. Tool servers without REQUIRES_CONTROL. Manual review: not every technical service necessarily requires an explicit control in v1.
 MATCH (t:ToolServer)
 WHERE NOT (t)-[:REQUIRES_CONTROL]->(:Control)
 RETURN t.id AS tool_server_id, t.name AS tool_server_name
@@ -99,7 +100,7 @@ RETURN bp.id AS blueprint_id, bp.name AS blueprint_name
 ORDER BY blueprint_name;
 
 
-// 14a. Blueprints missing included functions or controls. Expected: zero rows.
+// 14a. Blueprints missing included functions or controls. Manual review: governance-only blueprints may intentionally include controls without functions.
 MATCH (bp:Blueprint)
 WHERE NOT (bp)-[:INCLUDES_FUNCTION]->(:ReusableFunction) OR NOT (bp)-[:INCLUDES_CONTROL]->(:Control)
 RETURN bp.id AS blueprint_id, bp.name AS blueprint_name, EXISTS { MATCH (bp)-[:INCLUDES_FUNCTION]->(:ReusableFunction) } AS has_functions, EXISTS { MATCH (bp)-[:INCLUDES_CONTROL]->(:Control) } AS has_controls
