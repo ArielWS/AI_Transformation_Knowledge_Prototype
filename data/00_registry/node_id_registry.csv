@@ -50,6 +50,8 @@ id,label,name,description,source_tag,confidence,is_hypothetical_demo_case,create
 "CH_MOBILE_APP","Channel","Mobile app","Customer mobile banking application channel","S4|S12","publicly_observed","false","story_1"
 "CH_PUBLIC_WEBSITE","Channel","Public website","Public web channel for customer assistance and product information","DEMO","hypothetical_demo","true","story_1"
 "CH_VOICE","Channel","Voice channel","Phone or voicebot service channel","DEMO","hypothetical_demo","true","story_1"
+"CH_INTERNET_BANKING","Channel","Internet banking","Authenticated internet banking channel for digital customer assistance","DEMO","hypothetical_demo","true","story_1"
+"CH_INTERNAL_GENAI_PLATFORM","Channel","Internal GenAI platform","Internal GenAI platform channel for staff-facing assistants","DEMO","hypothetical_demo","true","story_1"
 "CH_BRANCH_DESKTOP","Channel","Branch desktop","Internal staff desktop channel for branch assistance","DEMO","hypothetical_demo","true","story_2"
 "CH_CONTACT_CENTER_DESKTOP","Channel","Contact center desktop","Internal desktop channel for contact center support","DEMO","hypothetical_demo","true","story_2"
 "CH_CAMPAIGN_PLATFORM","Channel","Campaign platform","Business campaign orchestration channel","S6","inferred","true","story_2|story_3"
