@@ -15,6 +15,7 @@ Codex or any assisting agent should update this file as tasks are completed.
 - [x] Populate `docs/00_sources/source_registry.md`
 - [x] Confirm `docs/01_value_stories/` files are complete
 - [x] Confirm `docs/02_model/` files are complete
+- [x] Align relationship properties already documented in `master_relationship_dictionary_v1.md` with `master_property_dictionary_v1.md`
 
 ## 1A. Repository handoff cleanup
 

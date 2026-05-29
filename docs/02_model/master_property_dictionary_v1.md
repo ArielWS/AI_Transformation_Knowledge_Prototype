@@ -339,6 +339,8 @@ Use relationship properties selectively. Most relationships only need source and
 
 ## 4.1 Common relationship properties
 
+The properties in this section are allowed relationship properties for v1 when used on the relationship types indicated below. They align with the v1 relationship dictionary and should not be used to introduce new relationship types.
+
 | Property            | Type        | Use for                                                     |
 | ------------------- | ----------- | ----------------------------------------------------------- |
 | `confidence`        | enum        | whether relationship is observed, inferred, or hypothetical |
@@ -349,6 +351,16 @@ Use relationship properties selectively. Most relationships only need source and
 ---
 
 ## 4.2 High-value relationship properties
+
+### Reference and context relationships
+
+| Relationship type           | Property              | Example                                      |
+| --------------------------- | --------------------- | -------------------------------------------- |
+| `HAS_NETWORK_BANK`          | `relationship_type`   | `ownership_context`                          |
+| `OPERATES_IN`               | `primary_market`      | `true`                                       |
+| `HAS_SYSTEM`                | `availability_status` | `available`, `partial`, `unknown`, `planned` |
+| `SUPPORTS_PROCESS`          | `support_level`       | `primary`, `secondary`                       |
+| `INCLUDES_CHANNEL_PATTERN`  | `channel_role`        | `core`, `optional`, `variant`                |
 
 ### `IMPLEMENTED_IN`
 
@@ -687,6 +699,7 @@ For the first prototype build:
 * Use only the **most useful optional properties**
 * Use relationship properties only for:
 
+  * Reference/context properties listed in section 4.2 for `HAS_NETWORK_BANK`, `OPERATES_IN`, `HAS_SYSTEM`, `SUPPORTS_PROCESS`, and `INCLUDES_CHANNEL_PATTERN`
   * `NEEDS_FUNCTION`
   * `DELIVERED_BY`
   * `HAS_RISK_TRIGGER`
