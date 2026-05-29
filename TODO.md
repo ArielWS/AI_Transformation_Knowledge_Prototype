@@ -76,7 +76,7 @@ Expected scope:
 
 ## 5. Load file
 
-- [ ] Populate `cypher/01_load_all.cypher`
+- [x] Populate `cypher/01_load_all.cypher`
 - [ ] Ensure files are loaded in the correct order:
   1. constraints
   2. reference nodes
@@ -92,7 +92,9 @@ Expected scope:
 
 ## 6. Validation queries
 
-Populate `cypher/02_validation_queries.cypher` with checks for:
+- [x] Populate `cypher/02_validation_queries.cypher`
+
+Checks included:
 
 - [ ] duplicate node IDs
 - [ ] duplicate names within the same label
@@ -110,7 +112,9 @@ Populate `cypher/02_validation_queries.cypher` with checks for:
 
 ## 7. Demo queries
 
-Populate `cypher/03_demo_queries.cypher` with queries for:
+- [x] Populate `cypher/03_demo_queries.cypher`
+
+Queries included:
 
 - [ ] assistant overlap candidates
 - [ ] most reused reusable functions
