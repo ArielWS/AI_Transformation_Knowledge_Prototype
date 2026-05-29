@@ -16,6 +16,15 @@ Codex or any assisting agent should update this file as tasks are completed.
 - [x] Confirm `docs/01_value_stories/` files are complete
 - [x] Confirm `docs/02_model/` files are complete
 
+## 1A. Repository handoff cleanup
+
+- [x] Remove accidental Markdown wrapper fences from `README.md`
+- [x] Remove accidental Markdown wrapper fences from `AGENTS.md`
+- [x] Remove accidental Markdown wrapper fences from `PROJECT_CONTEXT.md`
+- [x] Remove accidental Markdown wrapper fences from `DECISIONS.md`
+- [x] Confirm handoff files start directly with their intended H1 headings
+- [x] Clean `docs/00_sources/source_registry.md` into a Markdown table
+
 ---
 
 ## 2. Constraints and registry

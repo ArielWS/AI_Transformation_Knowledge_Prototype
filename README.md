@@ -1,5 +1,3 @@
-
-````md
 # AI Transformation Knowledge Prototype
 
 ## 1. Overview
@@ -380,5 +378,3 @@ The prototype is successful if it can answer:
 2. Which reusable functions and tool servers unlock the most AI use cases?
 3. Which similar-risk use cases have missing governance controls?
 4. Which blockers affect the most use cases, KPIs, and blueprints?
-
-```
