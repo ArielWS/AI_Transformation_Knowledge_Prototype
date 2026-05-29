@@ -1,4 +1,4 @@
-Use this for `AGENTS.md`.
+
 
 ````md
 # Agent Instructions

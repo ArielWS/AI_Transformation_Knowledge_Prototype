@@ -1,6 +1,3 @@
-Yes. Do **`README.md` now**, then **`BUILD_SEQUENCE.md`**, then **`TODO.md`** last. `TODO.md` should reference the build sequence, so it should come after.
-
-Paste this into `README.md`.
 
 ````md
 # AI Transformation Knowledge Prototype

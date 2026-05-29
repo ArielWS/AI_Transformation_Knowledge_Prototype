@@ -1,4 +1,4 @@
-Paste this into `DECISIONS.md`.
+
 
 ````md
 # Decisions
@@ -462,4 +462,4 @@ Reason:
 * the prototype must demonstrate why a knowledge graph adds value beyond dashboards
 
 ```
-```
+

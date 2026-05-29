@@ -1,6 +1,4 @@
-Next most important file is **`PROJECT_CONTEXT.md`**. Codex needs this to understand what the repo is for before generating data or Cypher.
 
-Paste this into `PROJECT_CONTEXT.md`.
 
 ````md
 # Project Context
