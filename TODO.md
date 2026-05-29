@@ -12,9 +12,9 @@ Codex or any assisting agent should update this file as tasks are completed.
 - [x] Populate `PROJECT_CONTEXT.md`
 - [x] Populate `DECISIONS.md`
 - [x] Populate `README.md`
-- [ ] Populate `docs/00_sources/source_registry.md`
-- [ ] Confirm `docs/01_value_stories/` files are complete
-- [ ] Confirm `docs/02_model/` files are complete
+- [x] Populate `docs/00_sources/source_registry.md`
+- [x] Confirm `docs/01_value_stories/` files are complete
+- [x] Confirm `docs/02_model/` files are complete
 
 ---
 
