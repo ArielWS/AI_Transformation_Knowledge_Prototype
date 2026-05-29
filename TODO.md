@@ -64,7 +64,7 @@ Create relationship Cypher files using `MATCH` + `MERGE`.
 - [x] Populate `data/02_relationships/relationships_story_2_tool_service_layer.cypher`
 - [x] Populate `data/02_relationships/relationships_story_3_governance_gap.cypher`
 - [x] Populate `data/02_relationships/relationships_story_4_blocker_propagation.cypher`
-- [ ] Populate `data/02_relationships/relationships_similarity.cypher`
+- [x] Populate `data/02_relationships/relationships_similarity.cypher`
 
 Expected scope:
 
