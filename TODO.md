@@ -59,7 +59,7 @@ Expected scope:
 
 Create relationship Cypher files using `MATCH` + `MERGE`.
 
-- [ ] Populate `data/02_relationships/relationships_context.cypher`
+- [x] Populate `data/02_relationships/relationships_context.cypher`
 - [ ] Populate `data/02_relationships/relationships_story_1_assistant_overlap.cypher`
 - [ ] Populate `data/02_relationships/relationships_story_2_tool_service_layer.cypher`
 - [ ] Populate `data/02_relationships/relationships_story_3_governance_gap.cypher`
