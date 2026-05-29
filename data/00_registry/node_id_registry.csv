@@ -111,6 +111,7 @@ id,label,name,description,source_tag,confidence,is_hypothetical_demo_case,create
 "DATA_PRODUCT_CATALOGUE","DataDomain","Product catalogue","Product facts tariffs and eligibility-relevant metadata","DEMO","hypothetical_demo","true","story_1|story_2"
 "DATA_CRM_INTERACTIONS","DataDomain","CRM interactions","CRM leads campaigns and customer interaction history","S6","inferred","true","story_2|story_4"
 "DATA_CONSENT","DataDomain","Consent","Consent data for personalization and marketing permissions","S6","inferred","true","story_2|story_4"
+"DATA_TRANSACTION_SUMMARY","DataDomain","Transaction summary","Summarized customer transaction patterns for affordability and recommendation use cases","DEMO","hypothetical_demo","true","story_3|story_4"
 "DATA_COMPLAINTS","DataDomain","Complaints","Complaint records routing history and resolution context","DEMO","hypothetical_demo","true","story_3|story_4"
 "DATA_AUDIT_LOGS","DataDomain","Audit logs","Audit logging and lineage evidence for AI tool calls and workflows","S2|S7|S13","inferred","true","story_4"
 "DATA_KNOWLEDGE_CONTENT","DataDomain","Knowledge content","Approved product policy help and staff knowledge content","S5","inferred","true","story_1|story_2"
