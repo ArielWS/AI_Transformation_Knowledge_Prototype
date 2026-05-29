@@ -101,8 +101,12 @@ UNWIND [
   {tool_id: "TOOL_PRODUCT_ELIGIBILITY", system_id: "SYS_PRODUCT_CATALOGUE", usage_type: "read", criticality: "medium", integration_status: "available", confidence: "hypothetical_demo", source_tag: "DEMO"},
   {tool_id: "TOOL_PRODUCT_KNOWLEDGE_RAG", system_id: "SYS_PRODUCT_CATALOGUE", usage_type: "source", criticality: "high", integration_status: "available", confidence: "inferred", source_tag: "S5"},
   {tool_id: "TOOL_PRODUCT_KNOWLEDGE_RAG", system_id: "SYS_INTERNAL_GENAI_PLATFORM", usage_type: "runtime", criticality: "high", integration_status: "available", confidence: "publicly_observed", source_tag: "S5"},
+  {tool_id: "TOOL_DIGITAL_HELP_RAG", system_id: "SYS_PUBLIC_WEBSITE", usage_type: "source", criticality: "medium", integration_status: "available", confidence: "hypothetical_demo", source_tag: "DEMO", created_for_story: "story_1"},
+  {tool_id: "TOOL_DIGITAL_HELP_RAG", system_id: "SYS_INTERNAL_GENAI_PLATFORM", usage_type: "runtime", criticality: "medium", integration_status: "available", confidence: "publicly_observed", source_tag: "S5", created_for_story: "story_1"},
   {tool_id: "TOOL_CRM_LEAD", system_id: "SYS_CRM_CAMPAIGN", usage_type: "write", criticality: "high", integration_status: "partial", confidence: "inferred", source_tag: "S6"},
   {tool_id: "TOOL_CONSENT_STATUS", system_id: "SYS_CONSENT_MANAGEMENT", usage_type: "read", criticality: "high", integration_status: "partial", confidence: "inferred", source_tag: "S6"},
+  {tool_id: "TOOL_NEXT_BEST_OFFER", system_id: "SYS_CRM_CAMPAIGN", usage_type: "runtime", criticality: "high", integration_status: "available", confidence: "inferred", source_tag: "S6", created_for_story: "story_2|story_3"},
+  {tool_id: "TOOL_NEXT_BEST_OFFER", system_id: "SYS_PRODUCT_CATALOGUE", usage_type: "source", criticality: "medium", integration_status: "available", confidence: "hypothetical_demo", source_tag: "DEMO", created_for_story: "story_2|story_3"},
   {tool_id: "TOOL_HUMAN_HANDOFF", system_id: "SYS_CRM_CAMPAIGN", usage_type: "write", criticality: "medium", integration_status: "partial", confidence: "hypothetical_demo", source_tag: "DEMO"},
   {tool_id: "TOOL_AUDIT_LOGGING", system_id: "SYS_DATA_PLATFORM_APEX", usage_type: "write", criticality: "high", integration_status: "planned", confidence: "inferred", source_tag: "S2|S7|S13"},
   {tool_id: "TOOL_RESPONSE_GUARDRAILS", system_id: "SYS_CONTENT_SAFETY", usage_type: "runtime", criticality: "high", integration_status: "available", confidence: "publicly_observed", source_tag: "S5"},
@@ -117,7 +121,7 @@ SET r.usage_type = row.usage_type,
     r.integration_status = row.integration_status,
     r.confidence = row.confidence,
     r.source_tag = row.source_tag,
-    r.created_for_story = "story_2";
+    r.created_for_story = coalesce(row.created_for_story, "story_2");
 
 // -----------------------------------------------------------------------------
 // Tool servers expose governed access to their core data domains.
