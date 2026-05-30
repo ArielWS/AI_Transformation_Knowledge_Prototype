@@ -335,3 +335,40 @@ MERGE (bp)-[r:INCLUDES_CONTROL]->(c)
 SET r.control_role = row.control_role,
     r.applies_to_variant = row.applies_to_variant,
     r.created_for_story = "story_2";
+
+// -----------------------------------------------------------------------------
+// Digital Onboarding Assistant Blueprint components: onboarding functions,
+// service-layer tools, and mandatory controls.
+// -----------------------------------------------------------------------------
+UNWIND [
+  {function_id: "FUNC_CHECK_KYC_STATUS", component_role: "core", priority: "high", created_for_story: "story_2|story_4"},
+  {function_id: "FUNC_RETRIEVE_PRODUCT_KNOWLEDGE", component_role: "optional", priority: "medium", created_for_story: "story_2"}
+] AS row
+MATCH (bp:Blueprint {id: "BP_DIGITAL_ONBOARDING_ASSISTANT_BLUEPRINT"})
+MATCH (f:ReusableFunction {id: row.function_id})
+MERGE (bp)-[r:INCLUDES_FUNCTION]->(f)
+SET r.component_role = row.component_role,
+    r.priority = row.priority,
+    r.created_for_story = row.created_for_story;
+
+UNWIND [
+  {tool_id: "TOOL_KYC_STATUS", component_role: "core", standardization_target: "group_standard", created_for_story: "story_2|story_4"},
+  {tool_id: "TOOL_DIGITAL_HELP_RAG", component_role: "optional", standardization_target: "multi_market", created_for_story: "story_2"}
+] AS row
+MATCH (bp:Blueprint {id: "BP_DIGITAL_ONBOARDING_ASSISTANT_BLUEPRINT"})
+MATCH (t:ToolServer {id: row.tool_id})
+MERGE (bp)-[r:INCLUDES_TOOL_SERVER]->(t)
+SET r.component_role = row.component_role,
+    r.standardization_target = row.standardization_target,
+    r.created_for_story = row.created_for_story;
+
+UNWIND [
+  {control_id: "CTRL_AUDIT_LOGGING", control_role: "mandatory", applies_to_variant: "all", created_for_story: "story_4"},
+  {control_id: "CTRL_ROLE_BASED_ACCESS", control_role: "mandatory", applies_to_variant: "authenticated", created_for_story: "story_2|story_4"}
+] AS row
+MATCH (bp:Blueprint {id: "BP_DIGITAL_ONBOARDING_ASSISTANT_BLUEPRINT"})
+MATCH (c:Control {id: row.control_id})
+MERGE (bp)-[r:INCLUDES_CONTROL]->(c)
+SET r.control_role = row.control_role,
+    r.applies_to_variant = row.applies_to_variant,
+    r.created_for_story = row.created_for_story;
