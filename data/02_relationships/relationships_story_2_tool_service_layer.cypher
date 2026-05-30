@@ -29,6 +29,7 @@ UNWIND [
   {use_case_id: "UC_SALES_OFFER_ASSISTANT", function_id: "FUNC_CHECK_PRODUCT_ELIGIBILITY", importance: "required", reuse_relevance: "high", status: "partial", confidence: "hypothetical_demo", source_tag: "DEMO"},
   {use_case_id: "UC_SALES_OFFER_ASSISTANT", function_id: "FUNC_CREATE_CRM_LEAD", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S6"},
   {use_case_id: "UC_SALES_OFFER_ASSISTANT", function_id: "FUNC_RETRIEVE_CONSENT_STATUS", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S6"},
+  {use_case_id: "UC_SALES_OFFER_ASSISTANT", function_id: "FUNC_RECOMMEND_NEXT_BEST_OFFER", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S6"},
   {use_case_id: "UC_SALES_OFFER_ASSISTANT", function_id: "FUNC_LOG_INTERACTION", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S2|S13"},
 
   {use_case_id: "UC_COMPLAINT_TRIAGE_ASSISTANT", function_id: "FUNC_CLASSIFY_COMPLAINT", importance: "required", reuse_relevance: "high", status: "partial", confidence: "hypothetical_demo", source_tag: "DEMO"},
@@ -37,6 +38,7 @@ UNWIND [
   {use_case_id: "UC_COMPLAINT_TRIAGE_ASSISTANT", function_id: "FUNC_LOG_INTERACTION", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S2|S13"},
 
   {use_case_id: "UC_CRM_LEAD_ASSISTANT", function_id: "FUNC_CREATE_CRM_LEAD", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S6"},
+  {use_case_id: "UC_CRM_LEAD_ASSISTANT", function_id: "FUNC_TRIGGER_WORKFLOW_ACTION", importance: "required", reuse_relevance: "high", status: "planned", confidence: "hypothetical_demo", source_tag: "DEMO"},
   {use_case_id: "UC_CRM_LEAD_ASSISTANT", function_id: "FUNC_LOG_INTERACTION", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S2|S13"},
   {use_case_id: "UC_CRM_LEAD_ASSISTANT", function_id: "FUNC_RETRIEVE_CUSTOMER_PROFILE", importance: "optional", reuse_relevance: "medium", status: "partial", confidence: "inferred", source_tag: "S6"},
 
@@ -51,7 +53,16 @@ UNWIND [
 
   {use_case_id: "UC_CUSTOMER_360_INSIGHT_COPILOT", function_id: "FUNC_RETRIEVE_CUSTOMER_PROFILE", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S7"},
   {use_case_id: "UC_CUSTOMER_360_INSIGHT_COPILOT", function_id: "FUNC_LOG_INTERACTION", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S2|S7|S13"},
-  {use_case_id: "UC_CUSTOMER_360_INSIGHT_COPILOT", function_id: "FUNC_RETRIEVE_CONSENT_STATUS", importance: "optional", reuse_relevance: "medium", status: "partial", confidence: "inferred", source_tag: "S6|S7"}
+  {use_case_id: "UC_CUSTOMER_360_INSIGHT_COPILOT", function_id: "FUNC_RETRIEVE_CONSENT_STATUS", importance: "optional", reuse_relevance: "medium", status: "partial", confidence: "inferred", source_tag: "S6|S7"},
+
+  {use_case_id: "UC_PRODUCT_RECOMMENDATION_ASSISTANT", function_id: "FUNC_RECOMMEND_NEXT_BEST_OFFER", importance: "required", reuse_relevance: "high", status: "partial", confidence: "hypothetical_demo", source_tag: "DEMO"},
+  {use_case_id: "UC_PRODUCT_RECOMMENDATION_ASSISTANT", function_id: "FUNC_EXPLAIN_RECOMMENDATION", importance: "required", reuse_relevance: "high", status: "planned", confidence: "hypothetical_demo", source_tag: "DEMO"},
+  {use_case_id: "UC_PERSONALIZED_OFFER_ENGINE", function_id: "FUNC_RECOMMEND_NEXT_BEST_OFFER", importance: "required", reuse_relevance: "high", status: "partial", confidence: "inferred", source_tag: "S6"},
+  {use_case_id: "UC_LOAN_AFFORDABILITY_RECOMMENDER", function_id: "FUNC_CHECK_AFFORDABILITY_SIGNAL", importance: "required", reuse_relevance: "high", status: "planned", confidence: "hypothetical_demo", source_tag: "DEMO"},
+  {use_case_id: "UC_LOAN_AFFORDABILITY_RECOMMENDER", function_id: "FUNC_EXPLAIN_RECOMMENDATION", importance: "required", reuse_relevance: "high", status: "planned", confidence: "hypothetical_demo", source_tag: "DEMO"},
+  {use_case_id: "UC_CREDIT_PREAPPROVAL_ASSISTANT", function_id: "FUNC_CHECK_AFFORDABILITY_SIGNAL", importance: "required", reuse_relevance: "high", status: "planned", confidence: "hypothetical_demo", source_tag: "DEMO"},
+  {use_case_id: "UC_CREDIT_PREAPPROVAL_ASSISTANT", function_id: "FUNC_EXPLAIN_RECOMMENDATION", importance: "required", reuse_relevance: "high", status: "planned", confidence: "hypothetical_demo", source_tag: "DEMO"},
+  {use_case_id: "UC_AUDIT_READY_AGENT_WORKFLOW", function_id: "FUNC_TRIGGER_WORKFLOW_ACTION", importance: "required", reuse_relevance: "high", status: "planned", confidence: "inferred", source_tag: "S2|S13"}
 ] AS row
 MATCH (u:UseCase {id: row.use_case_id})
 MATCH (f:ReusableFunction {id: row.function_id})
@@ -78,7 +89,11 @@ UNWIND [
   {function_id: "FUNC_APPLY_RESPONSE_GUARDRAILS", tool_id: "TOOL_RESPONSE_GUARDRAILS", delivery_status: "available", standardization_status: "group_standard", confidence: "high", source_tag: "S5"},
   {function_id: "FUNC_CLASSIFY_COMPLAINT", tool_id: "TOOL_COMPLAINT_TRIAGE", delivery_status: "planned", standardization_status: "local_only", confidence: "low", source_tag: "DEMO"},
   {function_id: "FUNC_RETRIEVE_COMPLAINT_HISTORY", tool_id: "TOOL_COMPLAINT_TRIAGE", delivery_status: "planned", standardization_status: "local_only", confidence: "low", source_tag: "DEMO"},
-  {function_id: "FUNC_RETRIEVE_GOVERNED_CUSTOMER_DATA", tool_id: "TOOL_GOVERNED_DATA_ACCESS", delivery_status: "planned", standardization_status: "candidate_group_standard", confidence: "medium", source_tag: "S7"}
+  {function_id: "FUNC_RETRIEVE_GOVERNED_CUSTOMER_DATA", tool_id: "TOOL_GOVERNED_DATA_ACCESS", delivery_status: "planned", standardization_status: "candidate_group_standard", confidence: "medium", source_tag: "S7"},
+  {function_id: "FUNC_RECOMMEND_NEXT_BEST_OFFER", tool_id: "TOOL_NEXT_BEST_OFFER", delivery_status: "partial", standardization_status: "candidate_group_standard", confidence: "medium", source_tag: "S6"},
+  {function_id: "FUNC_EXPLAIN_RECOMMENDATION", tool_id: "TOOL_NEXT_BEST_OFFER", delivery_status: "planned", standardization_status: "candidate_group_standard", confidence: "medium", source_tag: "DEMO"},
+  {function_id: "FUNC_CHECK_AFFORDABILITY_SIGNAL", tool_id: "TOOL_GOVERNED_DATA_ACCESS", delivery_status: "planned", standardization_status: "candidate_group_standard", confidence: "medium", source_tag: "DEMO"},
+  {function_id: "FUNC_TRIGGER_WORKFLOW_ACTION", tool_id: "TOOL_CRM_LEAD", delivery_status: "planned", standardization_status: "candidate_group_standard", confidence: "medium", source_tag: "DEMO"}
 ] AS row
 MATCH (f:ReusableFunction {id: row.function_id})
 MATCH (t:ToolServer {id: row.tool_id})
@@ -176,6 +191,30 @@ SET r.usage_purpose = row.usage_purpose,
     r.access_status = row.access_status,
     r.confidence = row.confidence,
     r.source_tag = row.source_tag,
+    r.created_for_story = "story_2";
+
+// -----------------------------------------------------------------------------
+// Data products cover data domains and source from core systems.
+// -----------------------------------------------------------------------------
+UNWIND [
+  {data_product_id: "DP_CRM_INTERACTION_HISTORY", data_domain_id: "DATA_CRM_INTERACTIONS"},
+  {data_product_id: "DP_PRODUCT_CATALOGUE", data_domain_id: "DATA_PRODUCT_CATALOGUE"}
+] AS row
+MATCH (dp:DataProduct {id: row.data_product_id})
+MATCH (d:DataDomain {id: row.data_domain_id})
+MERGE (dp)-[r:COVERS_DATA_DOMAIN]->(d)
+SET r.created_for_story = "story_2";
+
+UNWIND [
+  {data_product_id: "DP_CRM_INTERACTION_HISTORY", system_id: "SYS_CRM_CAMPAIGN", source_type: "primary", lineage_status: "partial", refresh_pattern: "near_real_time"},
+  {data_product_id: "DP_PRODUCT_CATALOGUE", system_id: "SYS_PRODUCT_CATALOGUE", source_type: "primary", lineage_status: "partial", refresh_pattern: "batch"}
+] AS row
+MATCH (dp:DataProduct {id: row.data_product_id})
+MATCH (s:System {id: row.system_id})
+MERGE (dp)-[r:SOURCES_FROM]->(s)
+SET r.source_type = row.source_type,
+    r.lineage_status = row.lineage_status,
+    r.refresh_pattern = row.refresh_pattern,
     r.created_for_story = "story_2";
 
 // -----------------------------------------------------------------------------

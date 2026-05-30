@@ -47,6 +47,22 @@ SET r.trigger_strength = row.trigger_strength,
     r.created_for_story = "story_3";
 
 // -----------------------------------------------------------------------------
+// Governance knowledge used by audit-ready agent workflow design.
+// -----------------------------------------------------------------------------
+UNWIND [
+  {use_case_id: "UC_AUDIT_READY_AGENT_WORKFLOW", knowledge_id: "KB_GOVERNANCE_CONTROL_LIBRARY", usage_type: "grounding", approval_status: "approved", localization: "group", confidence: "inferred", source_tag: "S2|S13"}
+] AS row
+MATCH (u:UseCase {id: row.use_case_id})
+MATCH (k:KnowledgeBase {id: row.knowledge_id})
+MERGE (u)-[r:USES_KNOWLEDGE]->(k)
+SET r.usage_type = row.usage_type,
+    r.approval_status = row.approval_status,
+    r.localization = row.localization,
+    r.confidence = row.confidence,
+    r.source_tag = row.source_tag,
+    r.created_for_story = "story_3";
+
+// -----------------------------------------------------------------------------
 // Risk triggers imply expected controls.
 // -----------------------------------------------------------------------------
 UNWIND [
